@@ -57,6 +57,7 @@ const useStyles = makeStyles(theme => ({
 
     successINFO:{
         display:'flex',
+        objectFit: 'contain',
         marginTop:theme.spacing(7)
     },
 
@@ -81,6 +82,7 @@ const useStyles = makeStyles(theme => ({
     },
 
     pathICO:{
+        objectFit: 'contain',
         marginRight:theme.spacing(3)
     },
 
