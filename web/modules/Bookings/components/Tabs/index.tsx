@@ -53,14 +53,16 @@ const TabsComponent:React.FC<bookingsDataType> = ({
     completedBooks
 }) => {
 
-    const [event,setEvent] = useState('CONFIRMED')
+    const [tabEvent,setTabEvent] = useState('CONFIRMED')
     const [value,setValue] = useState<number>(0)
     const classes = useStyles();
 
-    const handleChange = (event:React.ChangeEvent<{}>,newValue:number) => {
+    const handleChange = (event:React.ChangeEvent,newValue:number) => {
         setValue(newValue);
-        setEvent(event.target.outerText.toUpperCase())
+        setTabEvent(event.target.innerHTML.toUpperCase())
+        console.log(event.target.innerHTML )
     }
+
     return(
         <Box component="div" className="root">
             <Box style={{height:'100px'}}></Box>
@@ -77,12 +79,12 @@ const TabsComponent:React.FC<bookingsDataType> = ({
             </AppBar>
                 <TabPanel value={value} index={0}>
                     <BookingsContent
-                    event={event}
+                    tabEvent={tabEvent}
                     confirmed={confirmedBooks}/>
                 </TabPanel>
             <TabPanel value={value} index={1} >
                 <BookingsContent
-                event={event}
+                tabEvent={tabEvent}
                 completed={completedBooks}/>
             </TabPanel>
             </Box>

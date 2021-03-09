@@ -4,21 +4,21 @@ import useStyles from './style';
 import Typography from '@material-ui/core/Typography';
 
 interface BookingsProps {
-    event:string,
+    tabEvent:string,
     confirmed?:any,
     completed?:any
 }
 
 
 const BookingsContent:React.FC<BookingsProps> = ({
-    event,
+    tabEvent,
     confirmed,
     completed
 }) => {
     const classes = useStyles();
     return(
         <Box>
-            { event == 'COMPLETED' && completed.length == 0 ? 
+            { tabEvent == 'COMPLETED' && completed.length == 0 ?
             <Box className={classes.completedIsNull}>
                 <Typography variant="h5">
                     No bookings Yet
@@ -27,7 +27,7 @@ const BookingsContent:React.FC<BookingsProps> = ({
                     There are no bookings we could find. Please create a booking to get details.
                 </Typography>
             </Box>
-            : ((event == 'CONFIRMED' ? (confirmed) : (completed)).map((item:any,index:number) => 
+            : ((tabEvent == 'CONFIRMED' ? (confirmed) : (completed)).map((item:any,index:number) => 
                     <Box key={index}>
                         <Box component="div" key={index} className={classes.BookingsCard}>
                             <Box className={classes.cardHeader}>
